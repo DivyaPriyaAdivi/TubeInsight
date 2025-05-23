@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Youtube Video Comment Scraper and sentiment analyser</title>
+        <link rel = "stylesheet" href = "{{url_for('static', filename = 'style.css')}}">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    </head>
+    <body>
+        <form method="post" action="/scrap">
+            <label>Enter the  youtube video URL</label><br>
+            <input type="text" name="youtubeurl">
+            <input type="submit" value="Scrap" id="scrap_button" onclick="$('#loading').show();"><br><br>
+            
+
+        </form>
+        <div style="overflow-x: auto;">
+            {% if after_complete_message %}
+                <h3><span class="full_head">full Comments</span></h3>
+                <table>
+                    <tr>
+                        {% for full_comments in full_comments_csv %}
+                        {{ full_comments | safe}}
+                        {% endfor %}
+                    </tr>
+                </table><br>
+            {% endif %}
+        </div>
+    </body>
+</html>

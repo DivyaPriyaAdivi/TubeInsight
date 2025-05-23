@@ -1,0 +1,7 @@
+flask
+pandas
+google-api-python-client
+vaderSentiment
+textblob
+transformers
+torch
