@@ -1,16 +1,19 @@
 from googleapiclient.discovery import build
+import os
 import re
 from textblob import TextBlob
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import csv
 from transformers import pipeline
+from dotenv import load_dotenv
+load_dotenv()
+
+api_key = os.getenv("YOUTUBE_API_KEY")
 
 positive=0
 negative =0
 netural =0
 count =0
-
-api_key ='AIzaSyDcuOwwGZTYaD8CQey3ymQ8S04EWgohKCM'
 def scrapfyt(url):
 	count =0
 	end =url.index("?")
